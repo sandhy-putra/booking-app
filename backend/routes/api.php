@@ -8,3 +8,4 @@ use Illuminate\Support\Facades\Route;
 Route::get('/menus', [MenuController::class, 'index']);
 Route::get('/resources', [ResourceController::class, 'index']);
 Route::get('/bookings', [BookingController::class, 'index']);
+Route::post('/bookings', [BookingController::class, 'store']);
