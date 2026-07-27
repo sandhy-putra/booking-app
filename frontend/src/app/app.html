@@ -1,6 +1,10 @@
-<div class="app-layout">
-  <app-sidebar />
-  <main class="app-content">
-    <router-outlet />
-  </main>
-</div>
+@if (isLoginPage()) {
+  <router-outlet />
+} @else {
+  <div class="app-layout">
+    <app-sidebar />
+    <main class="app-content">
+      <router-outlet />
+    </main>
+  </div>
+}
