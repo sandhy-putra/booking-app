@@ -1,0 +1,28 @@
+<div class="menu-item">
+  <div class="menu-item__row" (click)="hasChildren ? toggle() : null">
+    @if (menu.route && !hasChildren) {
+      <a [routerLink]="menu.route" class="menu-item__link">
+        <span class="menu-item__icon">{{ menu.icon }}</span>
+        {{ menu.nama }}
+      </a>
+    } @else {
+      <span class="menu-item__label">
+        <span class="menu-item__icon">{{ menu.icon }}</span>
+        {{ menu.nama }}
+        @if (hasChildren) {
+          <span class="menu-item__caret">{{ expanded ? '▾' : '▸' }}</span>
+        }
+      </span>
+    }
+  </div>
+
+  @if (hasChildren && expanded) {
+    <ul class="menu-item__children">
+      @for (child of menu.children_recursive; track child.id) {
+        <li>
+          <app-menu-item [menu]="child" />
+        </li>
+      }
+    </ul>
+  }
+</div>

@@ -1,4 +1,6 @@
-<router-outlet />
-
-<h2>Test Menu (cek console browser)</h2>
-<pre>{{ menus() | json }}</pre>
+<div class="app-layout">
+  <app-sidebar />
+  <main class="app-content">
+    <router-outlet />
+  </main>
+</div>

@@ -1,0 +1,9 @@
+<nav class="sidebar">
+  <ul class="sidebar__list">
+    @for (menu of menus(); track menu.id) {
+      <li>
+        <app-menu-item [menu]="menu" />
+      </li>
+    }
+  </ul>
+</nav>
