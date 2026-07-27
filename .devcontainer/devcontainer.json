@@ -1,0 +1,22 @@
+{
+  "name": "Laravel + Angular Dev",
+  "image": "mcr.microsoft.com/devcontainers/php:8.3",
+  "features": {
+    "ghcr.io/devcontainers/features/node:1": { "version": "20" }
+  },
+  "postCreateCommand": "npm install -g @angular/cli && composer global require laravel/installer && echo 'export PATH=\"$PATH:$HOME/.composer/vendor/bin\"' >> ~/.bashrc",
+  "forwardPorts": [8000, 4200],
+  "portsAttributes": {
+    "8000": { "label": "Laravel API", "onAutoForward": "notify" },
+    "4200": { "label": "Angular App", "onAutoForward": "openBrowser" }
+  },
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "angular.ng-template",
+        "bmewburn.vscode-intelephense-client",
+        "ryannaddy.laravel-artisan"
+      ]
+    }
+  }
+}
