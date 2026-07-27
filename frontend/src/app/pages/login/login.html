@@ -1,17 +1,38 @@
 <div class="login-page">
-  <h2>Login</h2>
-  <form (ngSubmit)="onSubmit()">
-    <div>
-      <label>Email</label>
-      <input type="email" [(ngModel)]="email" name="email" required />
-    </div>
-    <div>
-      <label>Password</label>
-      <input type="password" [(ngModel)]="password" name="password" required />
-    </div>
-    @if (errorMessage()) {
-      <p class="error">{{ errorMessage() }}</p>
-    }
-    <button type="submit">Login</button>
-  </form>
+  <div class="login-page__brand">
+    <div class="login-page__logo">📅</div>
+    <h1>Booking App</h1>
+    <p>Kelola booking ruang & jadwal dengan mudah</p>
+  </div>
+
+  <div class="login-card">
+    <h2 class="login-card__title">Selamat datang kembali</h2>
+    <p class="login-card__subtitle">Masuk buat lanjut ke dashboard kamu</p>
+
+    <form (ngSubmit)="onSubmit()" class="login-form">
+      <div class="login-form__group">
+        <label for="email">Email</label>
+        <div class="login-form__input-wrap">
+          <span class="login-form__icon">✉</span>
+          <input id="email" type="email" [(ngModel)]="email" name="email" required placeholder="nama@email.com" />
+        </div>
+      </div>
+
+      <div class="login-form__group">
+        <label for="password">Password</label>
+        <div class="login-form__input-wrap">
+          <span class="login-form__icon">🔒</span>
+          <input id="password" type="password" [(ngModel)]="password" name="password" required placeholder="Masukkan password" />
+        </div>
+      </div>
+
+      @if (errorMessage()) {
+        <p class="login-form__error">⚠ {{ errorMessage() }}</p>
+      }
+
+      <button type="submit" class="login-form__submit">
+        Masuk <span class="login-form__submit-arrow">→</span>
+      </button>
+    </form>
+  </div>
 </div>
