@@ -17,9 +17,10 @@ class BookingController extends Controller
     {
         $booking = Booking::create([
             ...$request->validated(),
-            'user_id' => $request->user()?->id ?? 1, // sementara hardcode dulu, nanti diganti auth()->id()
+            'user_id' => $request->user()->id,
             'status' => 'pending',
         ]);
 
+        return response()->json($booking->load(['resource', 'user']), 201);
     }
 }
