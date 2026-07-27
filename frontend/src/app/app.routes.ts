@@ -1,5 +1,6 @@
 import { Routes } from '@angular/router';
 import { LoginComponent } from './pages/login/login';
+import { DashboardComponent } from './pages/dashboard/dashboard';
 import { authGuard } from './guards/auth-guard';
 
 export const routes: Routes = [
@@ -8,7 +9,7 @@ export const routes: Routes = [
     path: '',
     canActivate: [authGuard],
     children: [
-      // nanti diisi route dashboard, booking, dll di sini
+      { path: '', component: DashboardComponent },
     ]
   },
 ];

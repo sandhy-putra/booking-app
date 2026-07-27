@@ -1,0 +1,7 @@
+<div class="dashboard">
+  <h1>Dashboard</h1>
+  @if (currentUser) {
+    <p>Halo, {{ currentUser.name }} ({{ currentUser.role?.nama }})</p>
+  }
+  <button (click)="logout()">Logout</button>
+</div>
