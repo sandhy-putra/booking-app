@@ -1,0 +1,44 @@
+<div class="booking-create">
+  <h1>Booking Baru</h1>
+
+  <form (ngSubmit)="onSubmit()" class="booking-form">
+    <div class="booking-form__group">
+      <label>Resource</label>
+      <select [(ngModel)]="form.resource_id" name="resource_id" required>
+        <option [ngValue]="null" disabled>Pilih resource</option>
+        @for (r of resources(); track r.id) {
+          <option [ngValue]="r.id">{{ r.nama }} (kapasitas {{ r.kapasitas }})</option>
+        }
+      </select>
+    </div>
+
+    <div class="booking-form__group">
+      <label>Tanggal</label>
+      <input type="date" [(ngModel)]="form.tanggal" name="tanggal" required />
+    </div>
+
+    <div class="booking-form__row">
+      <div class="booking-form__group">
+        <label>Jam Mulai</label>
+        <input type="time" [(ngModel)]="form.jam_mulai" name="jam_mulai" required />
+      </div>
+      <div class="booking-form__group">
+        <label>Jam Selesai</label>
+        <input type="time" [(ngModel)]="form.jam_selesai" name="jam_selesai" required />
+      </div>
+    </div>
+
+    <div class="booking-form__group">
+      <label>Keterangan</label>
+      <textarea [(ngModel)]="form.keterangan" name="keterangan" rows="3"></textarea>
+    </div>
+
+    @if (errorMessage()) {
+      <p class="booking-form__error">⚠ {{ errorMessage() }}</p>
+    }
+
+    <button type="submit" [disabled]="submitting()">
+      {{ submitting() ? 'Menyimpan...' : 'Simpan Booking' }}
+    </button>
+  </form>
+</div>
