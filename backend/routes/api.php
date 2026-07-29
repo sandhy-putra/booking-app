@@ -20,3 +20,8 @@ Route::middleware('auth:sanctum')->group(function () {
     Route::get('/bookings', [BookingController::class, 'index']);
     Route::post('/bookings', [BookingController::class, 'store']);
 });
+
+Route::middleware(['auth:sanctum', 'admin'])->group(function () {
+    Route::patch('/bookings/{booking}/approve', [BookingController::class, 'approve']);
+    Route::patch('/bookings/{booking}/reject', [BookingController::class, 'reject']);
+});

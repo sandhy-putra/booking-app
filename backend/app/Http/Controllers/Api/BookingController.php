@@ -23,4 +23,16 @@ class BookingController extends Controller
 
         return response()->json($booking->load(['resource', 'user']), 201);
     }
+
+    public function approve(Booking $booking)
+    {
+        $booking->update(['status' => 'approved']);
+        return response()->json($booking->load(['resource', 'user']));
+    }
+
+    public function reject(Booking $booking)
+    {
+        $booking->update(['status' => 'rejected']);
+        return response()->json($booking->load(['resource', 'user']));
+    }
 }
