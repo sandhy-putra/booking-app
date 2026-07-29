@@ -1,0 +1,47 @@
+.booking-list {
+  &__header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+  }
+}
+
+.btn-primary {
+  background: #4f46e5;
+  color: #fff;
+  padding: 8px 16px;
+  border-radius: 8px;
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.booking-table {
+  width: 100%;
+  border-collapse: collapse;
+
+  th, td {
+    text-align: left;
+    padding: 10px 12px;
+    border-bottom: 1px solid #e5e7eb;
+    font-size: 14px;
+  }
+
+  th {
+    color: #6b7280;
+    font-weight: 600;
+  }
+}
+
+.badge {
+  padding: 3px 10px;
+  border-radius: 999px;
+  font-size: 12px;
+  font-weight: 600;
+
+  &--pending { background: #fef3c7; color: #92400e; }
+  &--approved { background: #d1fae5; color: #065f46; }
+  &--rejected { background: #fee2e2; color: #991b1b; }
+  &--selesai { background: #e0e7ff; color: #3730a3; }
+}
