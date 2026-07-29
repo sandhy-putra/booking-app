@@ -17,6 +17,9 @@
           <th>Jam</th>
           <th>Status</th>
           <th>User</th>
+          @if (isAdmin) {
+            <th>Aksi</th>
+          }
         </tr>
       </thead>
       <tbody>
@@ -27,6 +30,14 @@
             <td>{{ b.jam_mulai }} - {{ b.jam_selesai }}</td>
             <td><span class="badge badge--{{ b.status }}">{{ b.status }}</span></td>
             <td>{{ b.user?.name }}</td>
+            @if (isAdmin) {
+              <td>
+                @if (b.status === 'pending') {
+                  <button class="btn-approve" (click)="approve(b.id)">✓ Approve</button>
+                  <button class="btn-reject" (click)="reject(b.id)">✕ Reject</button>
+                }
+              </td>
+            }
           </tr>
         }
       </tbody>

@@ -29,4 +29,12 @@ export class BookingService {
   createBooking(data: any): Observable<Booking> {
     return this.http.post<Booking>(this.apiUrl, data);
   }
+
+  approveBooking(id: number): Observable<Booking> {
+  return this.http.patch<Booking>(`${this.apiUrl}/${id}/approve`, {});
+  }
+
+  rejectBooking(id: number): Observable<Booking> {
+    return this.http.patch<Booking>(`${this.apiUrl}/${id}/reject`, {});
+  }
 }

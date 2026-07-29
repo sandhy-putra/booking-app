@@ -45,3 +45,23 @@
   &--rejected { background: #fee2e2; color: #991b1b; }
   &--selesai { background: #e0e7ff; color: #3730a3; }
 }
+
+.btn-approve, .btn-reject {
+  padding: 4px 10px;
+  border: none;
+  border-radius: 6px;
+  font-size: 12px;
+  font-weight: 600;
+  cursor: pointer;
+  margin-right: 6px;
+}
+
+.btn-approve {
+  background: #d1fae5;
+  color: #065f46;
+}
+
+.btn-reject {
+  background: #fee2e2;
+  color: #991b1b;
+}
