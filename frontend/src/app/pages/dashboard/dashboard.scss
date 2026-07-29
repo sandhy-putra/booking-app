@@ -1,0 +1,47 @@
+@use '../../../styles/variables' as v;
+
+.dashboard {
+  &__header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 24px;
+  }
+
+  h1 {
+    margin: 0 0 4px;
+    font-size: 22px;
+    font-weight: 600;
+    color: v.$odoo-text;
+  }
+
+  &__greeting {
+    margin: 0;
+    color: v.$odoo-text-muted;
+    font-size: 13px;
+  }
+
+  &__role {
+    background: v.$odoo-primary-light;
+    color: v.$odoo-primary;
+    padding: 2px 8px;
+    border-radius: 4px;
+    font-weight: 600;
+    text-transform: capitalize;
+  }
+}
+
+.btn-logout {
+  padding: 7px 16px;
+  background: #fff;
+  border: 1px solid v.$odoo-border;
+  border-radius: 6px;
+  font-size: 13px;
+  font-weight: 600;
+  color: v.$odoo-text;
+  cursor: pointer;
+
+  &:hover {
+    background: v.$odoo-bg;
+  }
+}

@@ -10,9 +10,9 @@ class MenuSeeder extends Seeder
     public function run(): void
     {
         // Level 1
-        $dashboard = Menu::create(['nama' => 'Dashboard', 'icon' => 'home', 'route' => '/dashboard', 'urutan' => 1]);
-        $booking = Menu::create(['nama' => 'Booking', 'icon' => 'calendar', 'urutan' => 2]);
-        $master = Menu::create(['nama' => 'Master Data', 'icon' => 'database', 'urutan' => 3]);
+        $dashboard = Menu::create(['nama' => 'Dashboard', 'icon' => '🏠', 'route' => '/dashboard', 'urutan' => 1]);
+        $booking = Menu::create(['nama' => 'Booking', 'icon' => '📅', 'urutan' => 2]);
+        $master = Menu::create(['nama' => 'Master Data', 'icon' => '🗄️', 'urutan' => 3]);
 
         // Level 2 - anak dari Booking
         $bookingList = Menu::create(['nama' => 'Daftar Booking', 'route' => '/booking/list', 'urutan' => 1, 'parent_id' => $booking->id]);

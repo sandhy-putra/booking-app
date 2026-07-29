@@ -1,1 +1,17 @@
-/* You can add global styles to this file, and also import other style files */
+@use './styles/variables' as v;
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: v.$font-family;
+  background: v.$odoo-bg;
+  color: v.$odoo-text;
+  font-size: 14px;
+}
+
+button {
+  font-family: inherit;
+}

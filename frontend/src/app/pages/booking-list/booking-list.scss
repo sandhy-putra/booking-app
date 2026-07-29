@@ -1,67 +1,93 @@
+@use '../../../styles/variables' as v;
+
 .booking-list {
   &__header {
     display: flex;
     justify-content: space-between;
     align-items: center;
     margin-bottom: 20px;
+
+    h1 {
+      margin: 0;
+      font-size: 20px;
+      font-weight: 600;
+    }
   }
 }
 
 .btn-primary {
-  background: #4f46e5;
+  background: v.$odoo-primary;
   color: #fff;
-  padding: 8px 16px;
-  border-radius: 8px;
+  padding: 8px 18px;
+  border-radius: 6px;
   text-decoration: none;
-  font-size: 14px;
+  font-size: 13px;
   font-weight: 600;
+
+  &:hover {
+    background: v.$odoo-primary-dark;
+  }
 }
 
 .booking-table {
   width: 100%;
   border-collapse: collapse;
+  background: #fff;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.06);
 
   th, td {
     text-align: left;
-    padding: 10px 12px;
-    border-bottom: 1px solid #e5e7eb;
-    font-size: 14px;
+    padding: 12px 16px;
+    border-bottom: 1px solid v.$odoo-border;
+    font-size: 13px;
   }
 
   th {
-    color: #6b7280;
+    color: v.$odoo-text-muted;
     font-weight: 600;
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.4px;
+    background: #fafafa;
+  }
+
+  tr:last-child td {
+    border-bottom: none;
   }
 }
 
 .badge {
   padding: 3px 10px;
-  border-radius: 999px;
-  font-size: 12px;
-  font-weight: 600;
+  border-radius: 4px;
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
 
-  &--pending { background: #fef3c7; color: #92400e; }
-  &--approved { background: #d1fae5; color: #065f46; }
-  &--rejected { background: #fee2e2; color: #991b1b; }
-  &--selesai { background: #e0e7ff; color: #3730a3; }
+  &--pending { background: #fff3e0; color: #e65100; }
+  &--approved { background: #e8f5e9; color: #2e7d32; }
+  &--rejected { background: #ffebee; color: #c62828; }
+  &--selesai { background: v.$odoo-primary-light; color: v.$odoo-primary; }
 }
 
 .btn-approve, .btn-reject {
   padding: 4px 10px;
   border: none;
-  border-radius: 6px;
-  font-size: 12px;
-  font-weight: 600;
+  border-radius: 4px;
+  font-size: 11px;
+  font-weight: 700;
   cursor: pointer;
   margin-right: 6px;
+  text-transform: uppercase;
 }
 
 .btn-approve {
-  background: #d1fae5;
-  color: #065f46;
+  background: #e8f5e9;
+  color: #2e7d32;
 }
 
 .btn-reject {
-  background: #fee2e2;
-  color: #991b1b;
+  background: #ffebee;
+  color: #c62828;
 }

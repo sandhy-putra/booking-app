@@ -1,7 +1,11 @@
 <div class="dashboard">
-  <h1>Dashboard</h1>
-  @if (currentUser) {
-    <p>Halo, {{ currentUser.name }} ({{ currentUser.role?.nama }})</p>
-  }
-  <button (click)="logout()">Logout</button>
+  <div class="dashboard__header">
+    <div>
+      <h1>Dashboard</h1>
+      @if (currentUser) {
+        <p class="dashboard__greeting">Halo, {{ currentUser.name }} · <span class="dashboard__role">{{ currentUser.role?.nama }}</span></p>
+      }
+    </div>
+    <button class="btn-logout" (click)="logout()">Logout</button>
+  </div>
 </div>
