@@ -1,46 +1,35 @@
 <div class="booking-list">
   <div class="booking-list__header">
-    <h1>Daftar Booking</h1>
+    <div>
+      <h1>Daftar Booking</h1>
+      <p class="booking-list__subtitle">Kelola semua jadwal booking di sini</p>
+    </div>
     <a routerLink="/booking/create" class="btn-primary">+ Booking Baru</a>
   </div>
 
-  @if (loading()) {
-    <p>Memuat...</p>
-  } @else if (bookings().length === 0) {
-    <p>Belum ada booking.</p>
-  } @else {
-    <table class="booking-table">
-      <thead>
-        <tr>
-          <th>Resource</th>
-          <th>Tanggal</th>
-          <th>Jam</th>
-          <th>Status</th>
-          <th>User</th>
-          @if (isAdmin) {
-            <th>Aksi</th>
-          }
-        </tr>
-      </thead>
-      <tbody>
-        @for (b of bookings(); track b.id) {
-          <tr>
-            <td>{{ b.resource?.nama }}</td>
-            <td>{{ b.tanggal }}</td>
-            <td>{{ b.jam_mulai }} - {{ b.jam_selesai }}</td>
-            <td><span class="badge badge--{{ b.status }}">{{ b.status }}</span></td>
-            <td>{{ b.user?.name }}</td>
-            @if (isAdmin) {
-              <td>
-                @if (b.status === 'pending') {
-                  <button class="btn-approve" (click)="approve(b.id)">✓ Approve</button>
-                  <button class="btn-reject" (click)="reject(b.id)">✕ Reject</button>
-                }
-              </td>
-            }
-          </tr>
-        }
-      </tbody>
-    </table>
-  }
+  <div class="booking-list__card glass-card">
+    <div class="booking-list__toolbar">
+      <input
+        type="text"
+        placeholder="🔍 Cari resource, user, atau status..."
+        [(ngModel)]="quickFilterText"
+        class="booking-list__search"
+      />
+    </div>
+
+    @if (loading()) {
+      <p class="booking-list__loading">Memuat data...</p>
+    } @else {
+      <ag-grid-angular
+        class="ag-theme-quartz booking-grid"
+        [rowData]="bookings()"
+        [columnDefs]="colDefs"
+        [defaultColDef]="defaultColDef"
+        [pagination]="true"
+        [paginationPageSize]="10"
+        [quickFilterText]="quickFilterText"
+        style="width: 100%; height: 460px;"
+      />
+    }
+  </div>
 </div>

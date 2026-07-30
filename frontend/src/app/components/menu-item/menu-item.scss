@@ -2,17 +2,20 @@
 
 .menu-item {
   &__row {
-    padding: 9px 20px;
+    padding: 10px 14px;
+    margin-bottom: 3px;
     cursor: pointer;
     display: flex;
     align-items: center;
-    color: #c9c9c9;
-    font-size: 13px;
-    transition: background 0.12s ease, color 0.12s ease;
+    color: v.$text-muted;
+    font-size: 13.5px;
+    font-weight: 500;
+    border-radius: v.$radius-sm;
+    transition: background 0.15s ease, color 0.15s ease;
 
     &:hover {
-      background: rgba(255, 255, 255, 0.06);
-      color: #fff;
+      background: v.$accent-violet-soft;
+      color: v.$accent-violet;
     }
   }
 
@@ -40,12 +43,13 @@
 
   &__children {
     list-style: none;
-    margin: 0;
-    padding-left: 14px;
-    background: rgba(0, 0, 0, 0.15);
+    margin: 2px 0 6px;
+    padding-left: 10px;
+    border-left: 2px solid v.$accent-violet-soft;
+    margin-left: 14px;
 
     .menu-item__row {
-      padding-left: 26px;
+      padding-left: 16px;
       font-size: 12.5px;
     }
   }

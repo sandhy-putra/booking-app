@@ -3,9 +3,33 @@
     <div>
       <h1>Dashboard</h1>
       @if (currentUser) {
-        <p class="dashboard__greeting">Halo, {{ currentUser.name }} · <span class="dashboard__role">{{ currentUser.role?.nama }}</span></p>
+        <p class="dashboard__greeting">Halo, {{ currentUser.name }} <span class="dashboard__role">{{ currentUser.role?.nama }}</span></p>
       }
     </div>
     <button class="btn-logout" (click)="logout()">Logout</button>
+  </div>
+
+  <div class="stat-cards">
+    <div class="stat-card">
+      <div class="stat-card__icon stat-card__icon--violet">📅</div>
+      <div>
+        <div class="stat-card__label">Booking Hari Ini</div>
+        <div class="stat-card__value">{{ todayBookings() }}</div>
+      </div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-card__icon stat-card__icon--teal">📋</div>
+      <div>
+        <div class="stat-card__label">Total Booking</div>
+        <div class="stat-card__value">{{ totalBookings() }}</div>
+      </div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-card__icon stat-card__icon--amber">⏳</div>
+      <div>
+        <div class="stat-card__label">Menunggu Approval</div>
+        <div class="stat-card__value">{{ pendingBookings() }}</div>
+      </div>
+    </div>
   </div>
 </div>

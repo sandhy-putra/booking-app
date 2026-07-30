@@ -4,14 +4,29 @@
   box-sizing: border-box;
 }
 
-body {
+html, body {
   margin: 0;
+  min-height: 100vh;
+}
+
+body {
   font-family: v.$font-family;
-  background: v.$odoo-bg;
-  color: v.$odoo-text;
+  background: v.$bg-gradient;
+  background-attachment: fixed;
+  color: v.$text-primary;
   font-size: 14px;
 }
 
 button {
   font-family: inherit;
+}
+
+// Kartu kaca reusable
+.glass-card {
+  background: v.$glass-bg;
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid v.$glass-border;
+  border-radius: v.$radius-lg;
+  box-shadow: v.$glass-shadow;
 }

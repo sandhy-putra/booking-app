@@ -1,3 +1,5 @@
+@use '../styles/variables' as v;
+
 :host {
   display: block;
 }
@@ -7,11 +9,38 @@
   flex-direction: row;
   min-height: 100vh;
   width: 100%;
+  position: relative;
+  overflow-x: hidden;
+
+  &::before {
+    content: '';
+    position: fixed;
+    width: 420px;
+    height: 420px;
+    background: radial-gradient(circle, rgba(236, 72, 153, 0.18), transparent 70%);
+    top: -120px;
+    right: -80px;
+    border-radius: 50%;
+    z-index: 0;
+  }
+
+  &::after {
+    content: '';
+    position: fixed;
+    width: 380px;
+    height: 380px;
+    background: radial-gradient(circle, rgba(20, 184, 166, 0.15), transparent 70%);
+    bottom: -100px;
+    left: 200px;
+    border-radius: 50%;
+    z-index: 0;
+  }
 }
 
 .app-content {
   flex: 1;
-  padding: 24px 32px;
-  background: #f7f7f7;
+  padding: 28px 36px;
   min-width: 0;
+  position: relative;
+  z-index: 1;
 }

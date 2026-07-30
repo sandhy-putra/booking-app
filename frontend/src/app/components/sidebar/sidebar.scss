@@ -1,24 +1,39 @@
 @use '../../../styles/variables' as v;
 
 .sidebar {
-  width: 240px;
-  background: v.$odoo-sidebar-bg;
-  min-height: 100vh;
-  padding: 16px 0;
+  width: 250px;
+  min-height: calc(100vh - 32px);
+  margin: 16px;
+  padding: 24px 0;
+  background: v.$glass-bg;
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid v.$glass-border;
+  border-radius: v.$radius-lg;
+  box-shadow: v.$glass-shadow;
+  position: relative;
+  z-index: 1;
+
+  &__brand {
+    font-weight: 800;
+    font-size: 17px;
+    padding: 0 24px 24px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: v.$text-primary;
+
+    span.dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, v.$accent-violet, v.$accent-pink);
+    }
+  }
 
   &__list {
     list-style: none;
     margin: 0;
-    padding: 0;
-  }
-
-  &__brand {
-    color: #fff;
-    font-weight: 700;
-    font-size: 16px;
-    padding: 0 20px 20px;
-    display: flex;
-    align-items: center;
-    gap: 8px;
+    padding: 0 12px;
   }
 }
